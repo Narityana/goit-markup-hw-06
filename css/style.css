@@ -316,6 +316,14 @@ textarea {
     color: rgba(117, 117, 117, 0.5);
     
 }
+.contract {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 14px;
+
+}
+
 .terms-contract {
     color: var(--blue);
     text-decoration-line: underline;
@@ -325,13 +333,30 @@ textarea {
 .checkbox{
     margin-right: 8px;
     height: 24px;
+    appearance: none;
 }
 .agree-contract {
+    position: relative;
     display: flex;
     justify-content: center;
-    flex-direction: initial;
     align-items: center;
-    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.71px;
+    letter-spacing: 0.03em;
+    color: var(--grey-light);
+}
+.icon-check {
+    position: absolute;
+    left: -16px;
+    border: 2px solid var(--secondblack);
+    border-radius: 4px;
+    fill: var(--white);
+}
+
+.agree-contract:focus-within .icon-check {
+    border: transparent;
+    background-color: var(--blue);
+    transition: background-color 250ms var(--cubic), border 250ms var(--cubic);
 }
 
 .button-sendform {
@@ -497,9 +522,11 @@ textarea {
     justify-content: center;
     
 }
-.network-link:hover {
+.network-link:hover, 
+.network-link:focus {
     background-color:var(--blue);
     color: var(--white);
+    transition: background-color 250ms var(--cubic), color 250ms var(--cubic);
 }
 .networks {
     display: flex;
@@ -521,10 +548,13 @@ textarea {
     color: var(--networks);
 }
 
-.client-link:hover {
+.client-link:hover,
+.client-link:focus {
     border: 1px solid var(--blue);
     color: var(--blue);
+    transition: color 250ms var(--cubic), border 250ms var(--cubic);
 }
+
 .each-client {
     display: flex;
     fill:currentColor;
@@ -599,9 +629,11 @@ footer {
     justify-content: center;
 }
 
-.footer-network-link:hover {
+.footer-network-link:hover,
+.footer-network-link:focus {
     background-color: var(--blue);
     color: var(--white);
+    transition: background-color 250ms var(--cubic), color 250ms var(--cubic);
 }
 
 .footer-networks {
@@ -626,9 +658,8 @@ footer {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 .send {
-     margin-left: 10px;
+    margin-left: 10px;
 }
-
 
 .input-subscribe {
     padding: 15px;
@@ -643,6 +674,12 @@ footer {
 }
 .footer-label {
     margin-bottom: 8px;
+}
+
+.footer-label:focus-within .input-subscribe {
+    outline: none;
+    border: 1px solid var(--blue);
+    transition: border 250ms var(--cubic);
 }
 
 .filters-container {
@@ -745,7 +782,7 @@ footer {
    }
 
 .prodject-thumb:hover .projects-dscr {
-    opacity: 1;
+    opacity: 1;    
 }
 .prodject-thumb:hover::before{
     opacity: 1;
